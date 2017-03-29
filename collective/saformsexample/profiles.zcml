@@ -1,0 +1,37 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="collective.saformsexample">
+
+  <genericsetup:registerProfile
+      name="default"
+      title="collective.saformsexample"
+      directory="profiles/default"
+      description="Installs the collective.saformsexample add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:importStep
+      name="collective.saformsexample-postInstall"
+      title="collective.saformsexample post_install import step"
+      description="Post install import step from collective.saformsexample"
+      handler=".setuphandlers.post_install">
+  </genericsetup:importStep>
+
+  <genericsetup:registerProfile
+      name="initialsetup"
+      title="collective.saformsexample initialsetup (run-once)"
+      directory="profiles/initialsetup"
+      description="Installs collective.saformsexample with dependencies and run-once steps"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:importStep
+      name="collective.saformsexample-initialsetup-postInstall"
+      title="collective.saformsexample initialsetup post_install import step"
+      description="Initial setup post install import step from collective.saformsexample"
+      handler=".setuphandlers.post_install_initialsetup">
+  </genericsetup:importStep>
+
+
+</configure>

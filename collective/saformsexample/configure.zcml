@@ -1,0 +1,20 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="collective.saformsexample">
+
+    <five:registerPackage package="." initialize=".initialize" />
+    <includeDependencies package="." />
+    <include package="plone.resource" file="meta.zcml"/>
+
+    <i18n:registerTranslations directory="locales" />
+
+    <include file="profiles.zcml" />
+    <include file="upgradesteps.zcml" />
+
+    <include package=".browser" />
+
+
+</configure>

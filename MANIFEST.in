@@ -1,0 +1,8 @@
+graft collective
+graft docs
+include *.cfg *.rst *.in *.md
+exclude .installed.cfg
+include .coveragerc
+include .editorconfig
+global-exclude *.pyc
+include *.py

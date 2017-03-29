@@ -1,0 +1,16 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
+
+  <genericsetup:upgradeSteps
+     profile="collective.saformsexample:default"
+     source="1000"
+     destination="1001">
+    <genericsetup:upgradeStep
+      handler=".upgradesteps.runDefaultProfile"
+      title="Run collective.saformsexample default profile"
+      description=""
+      />
+  </genericsetup:upgradeSteps>
+
+
+</configure>
