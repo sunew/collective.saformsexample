@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from zope import schema as zs
-from zope.component import getUtility
 from zExceptions import NotFound
 from z3c.form import field
 from z3c.form import form
@@ -15,7 +14,6 @@ from sqlalchemy.orm.exc import NoResultFound
 from collective.saformsexample import _
 from collective.saformsexample.model.saconfigdemo_tables import IDemoData
 from collective.saformsexample.model.saconfigdemo_tables import DemoData
-from collective.saformsexample.interfaces import IDemoDataManager
 from collective.saformsexample.model.base import Session
 
 
@@ -122,7 +120,7 @@ class DemoDataEditForm(form.EditForm):
     fields = field.Fields(IDemoData)
 
     def __init__(self, context, request):
-        super(AddDemoDataForm, self).__init__(context, request)
+        super(DemoDataEditForm, self).__init__(context, request)
         self._db_session = None
 
     @property

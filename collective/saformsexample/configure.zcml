@@ -21,8 +21,4 @@
   <db:engine name="saconfigdemo_engine" url="mysql://saconfigdemouser:secret@localhost/saconfigdemodb" convert_unicode="true" pool_recycle="3600"/>
   <db:session name="saconfigdemo_session" engine="saconfigdemo_engine" />
 
-  <utility
-    provides="collective.saformsexample.interfaces.IDemoDataManager"
-    factory=".saconfigdemo_datamanager.DemoDataManagerUtility" />
-
 </configure>
