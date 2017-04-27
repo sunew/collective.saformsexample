@@ -6,7 +6,7 @@ from zope.i18nmessageid import MessageFactory
 
 _ = MessageFactory('collective.saformsexample')
 
-package_metadata = pkg_resources.get_distribution('danbio.api')
+package_metadata = pkg_resources.get_distribution('collective.saformsexample')
 version = package_metadata.version
 
 def initialize(context):

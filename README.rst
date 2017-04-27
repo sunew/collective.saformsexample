@@ -6,13 +6,21 @@
 collective.saformsexample
 ==============================================================================
 
-Tell me what your product does
+A demo of using sqlalchemy objects as a basis for z3c.form based forms.
 
-Features
---------
+Database connections: z3c.saconfig
 
-- Can be bullet points
+A sqlalchemy object is defined to implement a zope interface. The forms are generated from this interface.
 
 
 Examples
 --------
+
+Setup:
+
+1. First create the database and the database user with the sql script in the packages mysql_scripts/
+
+2. Install the module in Plone. This creates the tabels defined in model/ in the database.
+
+3. Go to demodata-view/ in your browser to begin adding data.
+

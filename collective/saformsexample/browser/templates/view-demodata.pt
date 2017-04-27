@@ -1,0 +1,81 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xml:lang="en" lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="collective.saformsexample">
+
+<head>
+    <metal:noborder fill-slot="top_slot"
+                 tal:define="dummy python:request.set('disable_border',1);
+                            disable_column_one python:request.set('disable_plone.leftcolumn',1);
+                            disable_column_two python:request.set('disable_plone.rightcolumn',1);"/>
+</head>
+<body>
+<metal:main fill-slot="main">
+
+    <div metal:use-macro="context/global_statusmessage/macros/portal_message">Status message</div>
+
+    <metal:header define-macro="header">
+      <h1 class="documentFirstHeading"
+          i18n:translate=""
+          metal:define-slot="heading">
+          View demo data
+      </h1>
+    </metal:header>
+
+    <metal:body define-macro="body">
+     <a href=""
+     id="artik-control-panel"
+     tal:attributes="href string:$portal_url/hcp-dashboard"
+     i18n:translate="">
+      Back to dashboard
+    </a>
+    <p></p>
+    <br />
+    <div class="documentDescription" >
+      Here all demo data are listed.
+    </div>
+
+    <div id="content-core">
+
+    <p></p>
+      <table class="listing">
+          <thead>
+            <tr class="list-header">
+                <td width="5%" align="right" colspan="2">
+                    <div class="list-item">Demo 1</div>
+                </td>
+                <td>
+                    <div class="list-item">Demo 2</div>
+                </td>
+            </tr>
+          </thead>
+          <tbody tal:define="data view/get_data ">
+            <tal:option tal:repeat="item data">
+                <tr class="row-hilite">
+                    <td align="left" valign="top" width="16"><input type="checkbox" name="ids:list" value="item/id"></td>
+                    <td><div class="list-item" tal:content="item/demo1"></div></td>
+                    <td><div class="list-item" tal:content="item/demo2"></div></td>
+                    <td><div class="list-item">
+                        <a tal:attributes="href python:view.portal_url + '/demodata-edit?id=' + str(item.id) ">edit</a>
+                    </div></td>
+                </tr>
+            </tal:option>
+          </tbody>
+      </table>
+
+    </div>
+
+    <a tal:attributes="href python:view.portal_url + '/demodata-add' ">Add</a>
+
+    </metal:body>
+
+    <!-- footer, by line created date etc. -->
+    <metal:footer define-macro="footer"></metal:footer>
+
+</metal:main>
+</body>
+
+</html>

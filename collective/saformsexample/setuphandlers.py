@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from logging import getLogger
+from .model.base import setup_db
 
 log = getLogger('collective.saformsexample:install')
 
@@ -10,7 +11,9 @@ def post_install(context):
         return
     # Do something during the installation of this package
     portal = context.getSite()  # noqa: F841
-    log.info("Running install: setuphandlers.")
+    log.info("Setting up db tables...")
+    setup_db()
+    log.info("Setup db tables - OK")
 
 
 def post_install_initialsetup(context):
