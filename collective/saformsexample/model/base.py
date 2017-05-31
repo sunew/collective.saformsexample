@@ -14,7 +14,7 @@ TABLE_NAMESPACE_DEMO = 'demo_'
 
 Base = declarative_base()
 
-# Define the Session factory here, for importing on other modules,
+# Define the Session factory here, for importing in other modules,
 # where a session will be created from this factory.
 Session = named_scoped_session("saconfigdemo_session")
 # todo: what is the life time of session objects, in for instance a utility or a browserview?
